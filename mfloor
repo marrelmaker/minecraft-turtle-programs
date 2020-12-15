@@ -1,0 +1,54 @@
+turtle.select(16)
+turtle.refuel()
+turtle.select(1)
+
+print("Foreward (x for detect): ")
+local fw = read()
+print("Right (x for detect): ")
+local rght = read()
+
+local itemID = turtle.getItemDetail().name
+local totalItems = 0
+
+for i=1,15 do
+  turtle.select(i)
+  if itemID == turtle.getItemDetail().name
+    totalItems += turtle.getItemCount()
+  end
+end
+turtle.select(1)
+
+if fw*rght > totalItems then
+  print("Not enough Items")
+  return
+end
+
+doLine(fw)
+turtle.turnRight()
+doLine(rght)
+turtle.turnRight()
+doLine(fw)
+turtle.turnRight()
+doLine(rght-1)
+
+
+
+
+
+
+function doLine(length)
+  for i=1,length do
+    if turtle.detectDown() then
+      turtle.digDown()
+    end
+  turtle.placeDown()
+  totalItems -= 1
+  
+  if(totalItems == 0) then
+	return 1
+  end
+  
+  if (turtle.getItemCount() == 0) || (turtle.getItemDetail().name ~= itemID) then
+    turtle.select(turtle.getSelectedSlot()+1)
+  end
+end
