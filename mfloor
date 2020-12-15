@@ -1,3 +1,25 @@
+local function doLine(length)
+  for i=1,length do
+    if turtle.detectDown() then
+      turtle.digDown()
+    end
+    turtle.placeDown()
+    totalItems = totalItems - 1
+  
+    if(totalItems <= 0) then
+	  return 1
+    end
+  
+    if (turtle.getItemCount() <= 0) or (turtle.getItemDetail().name ~= itemID) then
+      turtle.select(turtle.getSelectedSlot()+1)
+    end
+  end
+end
+
+
+
+
+
 turtle.select(16)
 turtle.refuel()
 turtle.select(1)
@@ -36,20 +58,3 @@ doLine(rght-1)
 
 
 
-function doLine(length)
-  for i=1,length do
-    if turtle.detectDown() then
-      turtle.digDown()
-    end
-    turtle.placeDown()
-    totalItems = totalItems - 1
-  
-    if(totalItems <= 0) then
-	  return 1
-    end
-  
-    if (turtle.getItemCount() <= 0) or (turtle.getItemDetail().name ~= itemID) then
-      turtle.select(turtle.getSelectedSlot()+1)
-    end
-  end
-end
