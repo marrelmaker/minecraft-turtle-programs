@@ -12,8 +12,8 @@ local totalItems = 0
 
 for i=1,15 do
   turtle.select(i)
-  if itemID == turtle.getItemDetail().name
-    totalItems += turtle.getItemCount()
+  if itemID == turtle.getItemDetail().name then
+    totalItems = totalItems + turtle.getItemCount()
   end
 end
 turtle.select(1)
@@ -42,9 +42,9 @@ function doLine(length)
       turtle.digDown()
     end
   turtle.placeDown()
-  totalItems -= 1
+  totalItems = totalItems - 1
   
-  if(totalItems == 0) then
+  if(totalItems <= 0) then
 	return 1
   end
   
