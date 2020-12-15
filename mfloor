@@ -48,7 +48,7 @@ function doLine(length)
 	return 1
   end
   
-  if (turtle.getItemCount() == 0) || (turtle.getItemDetail().name ~= itemID) then
+  if (turtle.getItemCount() == 0) or (turtle.getItemDetail().name ~= itemID) then
     turtle.select(turtle.getSelectedSlot()+1)
   end
 end
