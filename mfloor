@@ -12,7 +12,7 @@ local totalItems = 0
 
 for i=1,15 do
   turtle.select(i)
-  if itemID == turtle.getItemDetail().name then
+  if (turtle.getItemCount() > 0 ) and (itemID == turtle.getItemDetail().name) then
     totalItems = totalItems + turtle.getItemCount()
   end
 end
