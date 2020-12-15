@@ -41,14 +41,15 @@ function doLine(length)
     if turtle.detectDown() then
       turtle.digDown()
     end
-  turtle.placeDown()
-  totalItems = totalItems - 1
+    turtle.placeDown()
+    totalItems = totalItems - 1
   
-  if(totalItems <= 0) then
-	return 1
-  end
+    if(totalItems <= 0) then
+	  return 1
+    end
   
-  if (turtle.getItemCount() <= 0) or (turtle.getItemDetail().name ~= itemID) then
-    turtle.select(turtle.getSelectedSlot()+1)
+    if (turtle.getItemCount() <= 0) or (turtle.getItemDetail().name ~= itemID) then
+      turtle.select(turtle.getSelectedSlot()+1)
+    end
   end
 end
