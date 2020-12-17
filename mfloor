@@ -14,14 +14,14 @@ local function placeAndSwitch()
   end
 end
 
-local function doLine(length)
+local function doLine(length, placefirst)
   if length < 1 then
     turtle.turnRight()
 	return 1
   end
   
   for i=1,length do
-    if i > 1 then
+    if placefirst or (i > 1) then
       placeAndSwitch()
 	end
 	
@@ -67,15 +67,15 @@ else
   xxx = rght
 end
 
-placeAndSwitch()
 for n=0,xxx do
-  doLine(fw-(n*2))
-  doLine(rght-(n*2))
-  doLine(fw-(n*2))
-  if doLine(rght-(n*2)-1) == 1 then
+  doLine(fw-(n*2), true)
+  doLine(rght-(n*2), false)
+  doLine(fw-(n*2), false)
+  if doLine(rght-(n*2)-1, false) == 1 then
     return
   end
   turtle.forward()
+  read()
 end
 
 
