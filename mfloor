@@ -65,7 +65,7 @@ if fw*rght > totalItems then
 end
 
 local xxx = 0
-if fw > rght then
+if fw < rght then
   xxx = fw
 else 
   xxx = rght
