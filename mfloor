@@ -15,6 +15,11 @@ local function placeAndSwitch()
 end
 
 local function doLine(length)
+  if length < 1 then
+    turtle.turnRight()
+	return 1
+  end
+  
   for i=1,length do
     if i > 1 then
       placeAndSwitch()
@@ -23,8 +28,9 @@ local function doLine(length)
 	if i < length then
 	  turtle.forward()
 	end
-	
   end
+  
+  turtle.turnRight()
 end
 
 
@@ -55,13 +61,15 @@ if fw*rght > totalItems then
 end
 
 placeAndSwitch()
-doLine(fw)
-turtle.turnRight()
-doLine(rght)
-turtle.turnRight()
-doLine(fw)
-turtle.turnRight()
-doLine(rght-1)
+for n=0,xxx do
+  doLine(fw-(n*2))
+  doLine(rght-(n*2))
+  doLine(fw-(n*2))
+  if doLine(rght-(n*2)-1) == 1 then
+    return
+  end
+  turtle.forward()
+end
 
 
 
