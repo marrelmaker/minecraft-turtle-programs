@@ -33,7 +33,11 @@ local function doLine(length, placefirst)
   turtle.turnRight()
 end
 
-
+turtle.select(1)
+if turtle.getItemDetail().name == nil
+  print("Target Item missing")
+  return 1
+end
 
 print("Foreward (x for detect): ")
 local fw = tonumber(read())
@@ -75,7 +79,6 @@ for n=0,xxx do
     return
   end
   turtle.forward()
-  read()
 end
 
 
