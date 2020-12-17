@@ -30,9 +30,9 @@ end
 
 
 print("Foreward (x for detect): ")
-local fw = read()
+local fw = tonumber(read())
 print("Right (x for detect): ")
-local rght = read()
+local rght = tonumber(read())
 
 turtle.select(16)
 turtle.refuel()
