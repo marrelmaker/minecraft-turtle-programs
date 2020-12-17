@@ -60,6 +60,13 @@ if fw*rght > totalItems then
   return
 end
 
+local xxx = 0
+if fw > rght then
+  xxx = fw
+else 
+  xxx = rght
+end
+
 placeAndSwitch()
 for n=0,xxx do
   doLine(fw-(n*2))
